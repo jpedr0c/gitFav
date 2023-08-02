@@ -1,0 +1,122 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+:root{
+  font-size: clamp(40%, 1% + 2vw, 62.5%);
+}
+
+body{
+  background: #000;
+  color: white;
+  font-size: 1.6rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+#app {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+#app header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 11rem;
+  margin-bottom: 8.7rem;
+}
+
+#app header img#logo {
+  cursor: pointer;
+  max-width: 18.6rem;
+  max-height: 3.2rem;
+}
+
+#app header div {
+  display: flex;
+  gap: .8rem;
+}
+
+#app header div input {
+  padding: 1.6rem;
+  border: 0;
+  border-radius: 5px;
+  background: #06181C;
+  color: #7C7C8A;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+}
+
+#app header div button {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  padding: 1.2rem 3.2rem;
+  border: 0;
+  border-radius: 5px;
+  background: #065E7C;
+  color: #FFF;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s ease-in;
+}
+
+#app header div button:hover {
+  background: #FFF;
+  color: #065E7C;
+}
+
+#app header div button img {
+  width: 2.4rem;
+}
+
+#app table {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #4A808C;
+}
+
+#app table thead {
+  background-color: #092D38;
+}
+
+#app table tbody {
+  background-color: #06181C;
+}
+
+#app table tbody tr td.user{
+  padding: 2.4rem 0 2.4rem 2.2rem;
+}
+
+#app table tbody tr td.user a{
+  display: flex;
+  place-items: center;
+  gap: 1.6rem;
+  text-decoration: none;
+  color: #E1E1E6;
+  line-height: 3.2rem;
+}
+
+#app table tbody tr td.user a img{
+  width: 5.6rem;
+  border-radius: 5.6rem;
+}

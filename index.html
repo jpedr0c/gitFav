@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <title>GitFav</title>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <img id="logo" src="./assets/gitfav.svg" alt="Logo tipo do GitFav">
+      <div>
+        <label class="sr-only" for="user-search">Digite o nome do usuário</label>
+        <input id="user-search" type="text" placeholder="Digite o nome do usuário">
+        <button>
+          <img src="./assets/favorite.svg" alt="Ícone de uma estrela simbolizando favorito">
+          Favoritar
+        </button>
+      </div>
+    </header>
+    <table>
+      <thead>
+        <tr>
+          <th>Usuário</th>
+          <th>Repositórios</th>
+          <th>Seguidores</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="user">
+            <a href="https://github.com/jpedr0c" target="_blank">
+              <img src="https://github.com/jpedr0c.png" alt="Avatar">
+              <div class="user-description">
+                <p>João Pedro Cardoso</p>
+                <span>jpedr0c</span>
+              </div>
+            </a>
+          </td>
+          <td class="reporitories">28</td>
+          <td class="followers">35</td>
+          <td>Remover</td>
+        </tr>
+
+        <tr>
+          <td class="user">
+            <a href="https://github.com/peguimasid" target="_blank">
+              <img src="https://github.com/peguimasid.png" alt="Avatar">
+              <div class="user-description">
+                <p>Guilhermo Masid</p>
+                <span>peguimasid</span>
+              </div>
+            </a>
+          </td>
+          <td class="reporitories">52</td>
+          <td class="followers">90</td>
+          <td>Remover</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
