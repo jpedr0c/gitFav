@@ -5,20 +5,14 @@ export class Favorites {
   }
 
   load() {
-    this.dataUsers = [
-      {
-        login: 'jpedr0c',
-        name: 'João Pedro Cardoso',
-        public_repos: '28',
-        followers: '35',
-      },
-      {
-        login: 'peguimasid',
-        name: 'Guilhermo Masid',
-        public_repos: '52',
-        followers: '90',
-      },
-    ]
+    this.dataUsers = JSON.parse(localStorage.getItem('@gitFav')) || [];
+  }
+
+  delete(user) {
+    const filteredUsers = this.dataUsers.filter( entry => entry.login !== user.login);
+
+    this.dataUsers = filteredUsers;
+    this.update();
   }
 }
 
@@ -42,6 +36,14 @@ export class FavoritesView extends Favorites {
       row.querySelector('.user .user-description span').textContent = user.login;
       row.querySelector('.repositories').textContent = user.public_repos;
       row.querySelector('.followers').textContent = user.followers;
+
+      row.querySelector('.action').onclick = () => {
+        const isConfirmDelete = confirm("Tem certeza que deseja remover este usuário?");
+
+        if (isConfirmDelete) {
+          this.delete(user);
+        }
+      }
 
       this.tbody.append(row);
     })
