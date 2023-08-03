@@ -7,17 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <title>GitFav</title>
 </head>
 <body>
   <div id="app">
     <header>
-      <img id="logo" src="./assets/gitfav.svg" alt="Logo tipo do GitFav">
+      <a href="/">
+        <img id="logo" src="./assets/gitfav.svg" alt="Logo tipo do GitFav">
+      </a>
       <div>
         <label class="sr-only" for="user-search">Digite o nome do usuário</label>
         <input id="user-search" type="text" placeholder="Digite o nome do usuário">
         <button>
-          <img src="./assets/favorite.svg" alt="Ícone de uma estrela simbolizando favorito">
+          <i class="ph ph-star"></i>
           Favoritar
         </button>
       </div>
@@ -38,13 +41,15 @@
               <img src="https://github.com/jpedr0c.png" alt="Avatar">
               <div class="user-description">
                 <p>João Pedro Cardoso</p>
-                <span>jpedr0c</span>
+                <span>/jpedr0c</span>
               </div>
             </a>
           </td>
-          <td class="reporitories">28</td>
+          <td class="repositories">28</td>
           <td class="followers">35</td>
-          <td>Remover</td>
+          <td>
+            <button class="action">Remover</button>
+          </td>
         </tr>
 
         <tr>
@@ -53,13 +58,15 @@
               <img src="https://github.com/peguimasid.png" alt="Avatar">
               <div class="user-description">
                 <p>Guilhermo Masid</p>
-                <span>peguimasid</span>
+                <span>/peguimasid</span>
               </div>
             </a>
           </td>
-          <td class="reporitories">52</td>
+          <td class="repositories">52</td>
           <td class="followers">90</td>
-          <td>Remover</td>
+          <td>
+            <button class="action">Remover</button>
+          </td>
         </tr>
       </tbody>
     </table>

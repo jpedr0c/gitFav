@@ -29,7 +29,7 @@ body{
 
 #app {
   padding: 2rem;
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -59,22 +59,19 @@ body{
   background: #06181C;
   color: #7C7C8A;
   font-size: 1.6rem;
-  font-weight: 400;
-  line-height: 1.6rem;
 }
 
 #app header div button {
   display: flex;
   align-items: center;
   gap: .8rem;
-  padding: 1.2rem 3.2rem;
+  padding: 1.6rem;
   border: 0;
   border-radius: 5px;
   background: #065E7C;
   color: #FFF;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 700;
-  line-height: 2.4rem;
   text-transform: uppercase;
   cursor: pointer;
   transition: 0.3s ease-in;
@@ -85,38 +82,91 @@ body{
   color: #065E7C;
 }
 
-#app header div button img {
-  width: 2.4rem;
+#app header div button i {
+  font-size: 1.8rem;
 }
 
 #app table {
   width: 100%;
-  border-radius: 12px;
-  border: 1px solid #4A808C;
+  border-spacing: 0;
+  border: 2.5px solid #4A808C;
+  border-radius: 1.2rem;
 }
 
 #app table thead {
   background-color: #092D38;
 }
 
-#app table tbody {
+#app table thead th{
+  padding: 1.6rem;
+}
+
+#app table thead th:first-child{
+  border-top-left-radius: 1rem;
+}
+
+#app table thead th:last-child{
+  border-top-right-radius: 1rem;
+}
+
+#app table tbody tr{
   background-color: #06181C;
 }
 
-#app table tbody tr td.user{
+#app table tbody tr:nth-child(odd){
+  background-color: #06161B80;
+}
+
+#app table tbody td:not(:first-child){
+  text-align: center;
+}
+
+#app table tbody tr:last-child td:first-child{
+  border-bottom-left-radius: 1rem;
+}
+
+#app table tbody tr:last-child td:last-child{
+  border-bottom-right-radius: 1rem;
+}
+
+#app table tbody td.user{
   padding: 2.4rem 0 2.4rem 2.2rem;
 }
 
-#app table tbody tr td.user a{
+#app table tbody td.user a{
   display: flex;
   place-items: center;
   gap: 1.6rem;
   text-decoration: none;
   color: #E1E1E6;
-  line-height: 3.2rem;
 }
 
-#app table tbody tr td.user a img{
+#app table tbody td.user a img{
   width: 5.6rem;
-  border-radius: 5.6rem;
+  height: 5.6rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+#app table tbody td.user a .user-description{
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+}
+
+#app table tbody td.user a .user-description p{
+  font-weight: 700;
+}
+
+#app table tbody td.repositories, td.followers{
+  font-weight: 700;
+}
+
+#app table tbody button.action{
+  border: none;
+  background-color: transparent;
+  color: #F75A68;
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
 }
