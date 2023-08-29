@@ -1,7 +1,22 @@
+export class GitHubUser {
+  static search(username) {
+    const endpoint = `https://api.github.com/users/${username}`;
+
+    return fetch(endpoint).then(data => data.json()).then(data => ({
+      login: data.login,
+      name: data.name,
+      public_repos: data.public_repos,
+      followers: data.followers
+    }));
+  }
+}
+
 export class Favorites {
   constructor(root) {
     this.root = document.querySelector(root);
     this.load();
+
+    GitHubUser.search('peguimasid').then(user => console.log(user))
   }
 
   load() {
