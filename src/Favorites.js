@@ -101,7 +101,7 @@ export class FavoritesView extends Favorites {
         row.innerHTML = `
           <td class="noFavorite" colspan="4" align="center">
             <div class="box">
-              <img src="./assets/star.svg" alt="">
+              <img src="./assets/star.svg" alt="Imagem de uma estrela triste">
               <h2>Nenhum favorito ainda</h2>
             </div>
           </td>`;
