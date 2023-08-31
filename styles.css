@@ -15,6 +15,17 @@ body{
   font-size: 1.6rem;
 }
 
+::-webkit-scrollbar {
+  background-color: none;
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background: #4A808C;
+  flex-shrink: 0;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
