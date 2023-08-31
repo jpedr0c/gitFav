@@ -29,7 +29,7 @@ body{
 
 #app {
   padding: 2rem;
-  max-width: 900px;
+  max-width: 1440px;
   margin: 0 auto;
 }
 
@@ -37,8 +37,8 @@ body{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 11rem;
-  margin-bottom: 8.7rem;
+  margin-top: 4rem;
+  margin-bottom: 5rem;
 }
 
 #app header img#logo {
@@ -47,12 +47,12 @@ body{
   max-height: 3.2rem;
 }
 
-#app header div {
+#app header .search {
   display: flex;
   gap: .8rem;
 }
 
-#app header div input {
+#app header .search input {
   padding: 1.6rem;
   border: 0;
   border-radius: 5px;
@@ -61,7 +61,7 @@ body{
   font-size: 1.6rem;
 }
 
-#app header div button {
+#app header .search button {
   display: flex;
   align-items: center;
   gap: .8rem;
@@ -77,12 +77,12 @@ body{
   transition: 0.3s ease-in;
 }
 
-#app header div button:hover {
+#app header .search button:hover {
   background: #FFF;
   color: #065E7C;
 }
 
-#app header div button i {
+#app header .search button i {
   font-size: 1.8rem;
 }
 
@@ -115,6 +115,31 @@ body{
 
 #app table tbody tr:nth-child(odd){
   background-color: #06161B80;
+}
+
+#app table td.noFavorite{
+  height: 600px;
+  background-color: #06181C;
+  color: #4E5455;
+  font-family: Roboto Mono;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+#app table td.noFavorite img{
+  width: 132px;
+  height: 125px;
+}
+
+#app table td.noFavorite .box{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
 }
 
 #app table tbody td:not(:first-child){
