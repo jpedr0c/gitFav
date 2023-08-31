@@ -1,26 +1,40 @@
-export class GitHubUser {
-  static search(username) {
-    const endpoint = `https://api.github.com/users/${username}`;
-
-    return fetch(endpoint).then(data => data.json()).then(data => ({
-      login: data.login,
-      name: data.name,
-      public_repos: data.public_repos,
-      followers: data.followers
-    }));
-  }
-}
+import { GitHubUser } from "./GitHubUser.js";
 
 export class Favorites {
   constructor(root) {
     this.root = document.querySelector(root);
     this.load();
-
-    GitHubUser.search('peguimasid').then(user => console.log(user))
+    this.onAdd();
   }
 
   load() {
     this.dataUsers = JSON.parse(localStorage.getItem('@gitFav')) || [];
+    this.favoritesTableIfEmpty();
+  }
+
+  save() {
+    localStorage.setItem('@gitFav', JSON.stringify(this.dataUsers));
+  }
+
+  async add(username) {
+    try {
+      const isUserExist = this.dataUsers.find(user => user.login === username)
+
+      if (isUserExist)
+        throw new Error('Usuário já favoritado');
+
+      const user = await GitHubUser.search(username);
+  
+      if (user.login === undefined)
+        throw new Error('Usuário não encontrado!'); 
+
+      this.dataUsers = [user, ...this.dataUsers];
+      this.update();
+      this.save();
+    } catch(error) {
+      alert(error.message);
+    }
+
   }
 
   delete(user) {
@@ -28,6 +42,7 @@ export class Favorites {
 
     this.dataUsers = filteredUsers;
     this.update();
+    this.save();
   }
 }
 
@@ -38,8 +53,22 @@ export class FavoritesView extends Favorites {
     this.update();
   }
 
+  onAdd() {
+    const addButton = this.root.querySelector('.search button')
+    let input = this.root.querySelector('.search input');
+
+    addButton.onclick = () => {
+      this.add(input.value);
+
+      input.value = '';
+    };
+  }
+
   update() {
     this.removeAllFavorites();
+
+    if (this.dataUsers.length <= 0)
+      this.favoritesTableIfEmpty();
 
     this.dataUsers.forEach( user => {
       const row = this.createRow();
@@ -62,6 +91,23 @@ export class FavoritesView extends Favorites {
 
       this.tbody.append(row);
     })
+  }
+
+  favoritesTableIfEmpty() {
+    const tableBody = document.querySelector('table tbody');
+    const row = document.createElement('tr');
+
+    if (this.dataUsers.length == 0) {
+        row.innerHTML = `
+          <td class="noFavorite" colspan="4" align="center">
+            <div class="box">
+              <img src="./assets/star.svg" alt="">
+              <h2>Nenhum favorito ainda</h2>
+            </div>
+          </td>`;
+        
+      tableBody.append(row);
+    }
   }
 
   createRow() {
